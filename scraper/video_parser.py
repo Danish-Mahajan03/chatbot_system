@@ -1,8 +1,10 @@
+import os
+from dotenv import load_dotenv
 import requests
 import time
 from tqdm import tqdm
 
-# YOUTUBE_API_KEY = 'AIzaSyCEB7ugzZS9dJVnOKeRUXo4ewM2i1rIFLo'
+load_dotenv()
 
 class VideoExtractor:
     """
@@ -22,7 +24,7 @@ class VideoExtractor:
             youtube_api_key (str): The API key for accessing YouTube Data API.
             driver (WebDriver): The WebDriver instance for the current browser session.
         """
-        self.__YOUTUBE_API_KEY = 'AIzaSyCEB7ugzZS9dJVnOKeRUXo4ewM2i1rIFLo', 
+        self.__YOUTUBE_API_KEY = os.gotenv('API_KEY'), 
         self.__driver = driver
 
 
