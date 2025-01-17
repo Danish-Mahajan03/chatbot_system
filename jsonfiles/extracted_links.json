@@ -1,0 +1,272 @@
+{
+    "Administration": {
+        "About Us": {
+            "Vision, Mission & Values": "https://www.nitj.ac.in/admin/index.html",
+            "NITJ Rankings & Awards": "https://www.nitj.ac.in/admin/ranking.html",
+            "Institute History": "https://www.nitj.ac.in/admin/index.html#history",
+            "Explore NITJ": "https://www.nitj.ac.in/admin/explore.html",
+            "Institute Prospectus": "https://nitj.ac.in/files/1719227188415-Prospectus%202024-2025.pdf",
+            "Institute Flyers": "https://www.nitj.ac.in/admin/prospectus.html",
+            "Virtual Tour": "https://www.nitj.ac.in/admin/virtualtour.html",
+            "Newsletters": "https://www.nitj.ac.in/admin/newsletter.html",
+            "Compendium": "https://www.nitj.ac.in/NITJ-Compendium/",
+            "Reach Us": "https://www.nitj.ac.in/admin/location.html"
+        },
+        "Leadership": {
+            "Organisational Chart": "https://www.nitj.ac.in/admin/oc.html",
+            "Chairperson": "https://www.nitj.ac.in/admin/chairperson.html",
+            "Director": "https://www.nitj.ac.in/admin/director.html",
+            "Registrar": "https://www.nitj.ac.in/admin/registrar.html",
+            "Dean Academics": "https://www.nitj.ac.in/admin/administration.html#academic-administration",
+            "Dean Student Welfare": "https://www.nitj.ac.in/admin/administration.html#student-welfare",
+            "Dean Faculty Welfare": "https://www.nitj.ac.in/admin/administration.html#faculty-welfare",
+            "Dean Planning & Development": "https://www.nitj.ac.in/admin/administration.html#planning-development",
+            "Dean Research & Consultancy": "https://www.nitj.ac.in/admin/administration.html#research-consultancy",
+            "Dean Industry and International Affairs": "https://www.nitj.ac.in/admin/administration.html#international-affairs",
+            "Hostel Administration": "https://www.nitj.ac.in/admin/hostels.html",
+            "Administrative Officers": "https://www.nitj.ac.in/admin/administrative_officers.html",
+            "Technical Officers": "https://www.nitj.ac.in/admin/technical_officers.html"
+        },
+        "Governing Bodies": {
+            "NIT Council": "https://www.nitj.ac.in/admin/council.html",
+            "Board of Governors": "https://www.nitj.ac.in/admin/governors.html",
+            "Senate": "https://www.nitj.ac.in/admin/senate.html",
+            "Finance Committee": "https://www.nitj.ac.in/admin/finance_committee.html",
+            "Building and Works Committee": "https://www.nitj.ac.in/admin/building_works.html",
+            "Board of Governors Minutes": "https://www.nitj.ac.in/template/index.html?id=64cb7d1df9a66f2de5455389?category=newpage",
+            "Senate Minutes": "https://www.nitj.ac.in/template/index.html?id=64cb86d7f9a66f2de547e770?category=newpage",
+            "Finance Committee Minutes": "https://www.nitj.ac.in/template/index.html?id=64cb8601f9a66f2de547c3ab?category=newpage",
+            "Building and Works Committee Minutes": "https://www.nitj.ac.in/template/index.html?id=64cb8765f9a66f2de548048d?category=newpage"
+        },
+        "Cells": {
+            "E-cell": "https://www.nitj.ac.in/ecell/",
+            "Equal Opportunities and SC/ST/OBC/PwD Cell": "https://www.nitj.ac.in/admin/sc-cell.html",
+            "राजभाषा (हिन्दी प्रकोष्ठ)": "https://www.nitj.ac.in/other/rajbhasha",
+            "Proctorial Cell": "https://www.nitj.ac.in/admin/proctorial-cell.html",
+            "RTI Cell": "https://www.nitj.ac.in/admin/rti-cell.html",
+            "Student Grievance Redressal Committee": "https://www.nitj.ac.in/admin/student-g-cell.html",
+            "Faculty Grievances Cell": "https://www.nitj.ac.in/admin/faculty-g-cell.html",
+            "Staff Grievances Cell": "https://www.nitj.ac.in/admin/staff-g-cell.html",
+            "Public Grievances Cell": "https://www.nitj.ac.in/admin/public-g-cell.html",
+            "Women Cell": "https://www.nitj.ac.in/admin/women-cell.html"
+        },
+        "Committees": {
+            "Institute Development Committee": "https://www.nitj.ac.in/admin/committees.html#institute-development",
+            "Internal Complaint Committee": "https://www.nitj.ac.in/admin/committees.html#internal-complaint",
+            "Print, Digital Media and Newsletter Committee": "https://www.nitj.ac.in/admin/committees.html#print-digital",
+            "Social Media Committee": "https://www.nitj.ac.in/admin/committees.html#social-media",
+            "Website Development and Management Committee": "https://www.nitj.ac.in/admin/committees.html#website-management"
+        }
+    },
+    "Academics": {
+        "Departments": {
+            "Biotechnology": "https://departments.nitj.ac.in/dept/bt/home",
+            "Chemistry": "https://departments.nitj.ac.in/dept/cy/home",
+            "Chemical Engineering": "https://departments.nitj.ac.in/dept/ch/home",
+            "Civil Engineering": "https://departments.nitj.ac.in/dept/ce/home",
+            "Computer Science and Engineering": "https://departments.nitj.ac.in/dept/cse/home",
+            "Electronics and Communication Engineering": "https://departments.nitj.ac.in/dept/ece/home",
+            "Electrical Engineering": "https://departments.nitj.ac.in/dept/ee/home",
+            "Humanities and Management": "https://departments.nitj.ac.in/dept/hm/home",
+            "Industrial and Production Engineering": "https://departments.nitj.ac.in/dept/ipe/home",
+            "Information Technology": "https://departments.nitj.ac.in/dept/it/home",
+            "Instrumentation and Control Engineering": "https://departments.nitj.ac.in/dept/ice/home",
+            "Mathematics and Computing": "https://departments.nitj.ac.in/dept/ma/Home",
+            "Mechanical Engineering": "https://departments.nitj.ac.in/dept/me/home",
+            "Physics": "https://departments.nitj.ac.in/dept/ph/home",
+            "Textile Technology": "https://departments.nitj.ac.in/dept/tt/home",
+            "Integrated Teacher Education Programme (ITEP)": "https://v1.nitj.ac.in/ITEP/",
+            "Integrated B.Tech-MBA Program with IIM Amritsar": "https://www.iimamritsar.ac.in/p/ibm"
+        },
+        "Centers": {
+            "Center for Artificial Intelligence": "https://www.nitj.ac.in/template/index.html?id=648c0c4afc4802c2c299bddb?category=newpage",
+            "Center for Continuing Education": "https://v1.nitj.ac.in/cce/",
+            "Center for Energy and Environment": "https://departments.nitj.ac.in/dept/cee/Home",
+            "Sports and Healthcare Research Centre": "https://www.nitj.ac.in/template/index.html?id=673192cbfd4aa5bfba888e30?category=newpage",
+            "Skill Development Centre": "https://departments.nitj.ac.in/center/sdc/Home"
+        },
+        "Academic System": {
+            "Academic System": "https://www.nitj.ac.in/template/index.html?id=64abdf4d2117b746b18a474d?category=newpage",
+            "Academic Circulars & Notices": "https://www.nitj.ac.in/admin/notices.html",
+            "Academic Calender": "https://nitj.ac.in/template/index.html?id=6433e06be7b7ce1ef620fd53?category=notice",
+            "Academic Regulations": "https://www.nitj.ac.in/template/index.html?id=64ccc1baf936ec1417f91875?category=newpage",
+            "Curriculum": "https://www.nitj.ac.in/template/index.html?id=64a4f538e7b4137ef2c5a9fe?category=newpage",
+            "System of Evaluation and Grant of Division": "https://www.nitj.ac.in/admin/SystemGrantDivision.html",
+            "Standard Operationg Procedures (SOP)": "https://www.nitj.ac.in/nitj_files/links/Standard_operating_procedure_for_the_Academic_Section_17937.pdf",
+            "UMC Rules": "https://www.nitj.ac.in/admin/UMC.html",
+            "General FAQs": "https://www.nitj.ac.in/admin/faq.html"
+        },
+        "Academic Services": {
+            "Student Portal": "https://www.nitj.ac.in/erp/login",
+            "Grade Calculation": "https://www.nitj.ac.in/admin/Grade.html",
+            "Results": "https://www.nitj.ac.in/erp/login",
+            "Online Application for Transcripts and Certificates": "https://www.nitj.ac.in/admin/OATC.html",
+            "Online Application for Verification of Degree": "https://www.nitj.ac.in/admin/Oavd.html",
+            "CGPA Criteria and Medium of Education": "https://www.nitj.ac.in/admin/Cgpa.html",
+            "Academic Section Officials": "https://www.nitj.ac.in/admin/Contact.html"
+        },
+        "Allied facilities": {
+            "Central Library": "http://lib.nitj.ac.in/",
+            "Computer Center": "https://www.nitj.ac.in/admin/Cc.html",
+            "Central Workshop": "https://www.nitj.ac.in/template/index.html?id=64cce58c250c60a3057bb446?category=newpage",
+            "Institute Instrumentation Center": "https://www.nitj.ac.in/admin/IIC.html"
+        },
+        "Programs of study": {
+            "Bachelor of Technology": "https://www.nitj.ac.in/admin/BTech.html",
+            "Master of Technology": "https://www.nitj.ac.in/admin/Mtech.html",
+            "Master of Business Administration": "https://www.nitj.ac.in/admin/MBA.html",
+            "Master of Science": "https://www.nitj.ac.in/admin/MSC.html",
+            "Post Graduate Diploma": "https://www.nitj.ac.in/admin/PgDiploma.html",
+            "Doctor of Philosophy": "https://www.nitj.ac.in/admin/Phd.html"
+        },
+        "convocation": {
+            "20th Convocation - 2024": "https://www.youtube.com/live/bIm6F-B6YJY",
+            "19th Convocation - 2024": "https://www.youtube.com/live/20M0TXdFvY4?si=_Jw24PlyHgnuRR_f",
+            "18th Convocation - 2023": "https://www.youtube.com/live/DAEnJzUNZYE?si=PfW8qcJ57FmJ442R",
+            "17th Convocation - 2021": "https://youtu.be/GlzKt0nh9Ro?si=CNJg9bjIxKNMayjX",
+            "16th Convocation - 2020": "https://www.youtube.com/live/lM6tEkvhlLM?si=jaH5LYPnfJ0T6QeJ"
+        },
+        "other links": {
+            "UGC Act- Rules and Regulations": "https://www.ugc.gov.in/ugc_regulations.aspx",
+            "NIT Act and Statutes": "https://www.nitj.ac.in/template/index.html?id=64faf68538ceda75f04478fe?category=newpage",
+            "Ministry of Education Notifications": "https://www.education.gov.in/circulars-orders-notification",
+            "National Education Policy 2020": "https://www.education.gov.in/sites/upload_files/mhrd/files/NEP_Final_English_0.pdf"
+        }
+    },
+    "Admissions": {
+        "Prospective Students": {
+            "Institute Prospectus": "https://nitj.ac.in/files/1719227188415-Prospectus%202024-2025.pdf",
+            "Programmes Offered": "https://www.nitj.ac.in/template/index.html?id=64a532c5e7b4137ef2d3e7d0?category=newpage",
+            "International Students": "https://www.nitj.ac.in/admin/international.html",
+            "Why NITJ?": "https://www.nitj.ac.in/admin/ranking.html",
+            "Explore NITJ": "https://www.nitj.ac.in/admin/explore.html",
+            "Discover Student Life": "https://www.nitj.ac.in/admissions/student_life.html",
+            "Virtual Tour": "https://www.nitj.ac.in/admin/virtualtour.html",
+            "Admission FAQs": "https://nitj.ac.in/template/index.html?id=645e2f9f424d2211eeeb74e9?category=newpage"
+        },
+        "Anti Raging": {
+            "Anti Ragging Cell": "https://www.nitj.ac.in/admissions/antiRagging.html",
+            "Anti Ragging Affidavit": "https://www.nitj.ac.in/template/index.html?id=64c8c8faead2fd941484213b?category=newpage",
+            "National anti-Ragging Programme": "https://www.antiragging.in/"
+        },
+        "Join NITJ": {
+            "B.Tech. Admission": "https://www.nitj.ac.in/admissions/index.html#btech",
+            "M.Tech. Admission": "https://www.nitj.ac.in/admissions/index.html#mtech",
+            "M.Sc. Admission": "https://www.nitj.ac.in/admissions/index.html#msc",
+            "M.B.A. Admission": "https://www.nitj.ac.in/admissions/index.html#mba",
+            "Ph.D. Admission": "https://www.nitj.ac.in/admissions/index.html#phd",
+            "Integrated B.Sc.-B.Ed. Admission": "https://nitj.ac.in/admissions/index.html#bscbed",
+            "Contact Details for Admission": "https://www.nitj.ac.in/admissions/contactDetails.html"
+        },
+        "Institute Flyers": {
+            "B.Tech.": "https://nitj.ac.in/files/1713413456436-Under%20Graduate%20Programme%20Admission%202024_20240416_131440_0000.pdf",
+            "M.Tech.": "https://nitj.ac.in/files/1715775693930-Mtech.pdf",
+            "M.Sc.": "https://nitj.ac.in/files/1715775693930-Mtech.pdf",
+            "M.B.A.": "https://nitj.ac.in/files/1715775693930-Mtech.pdf",
+            "Ph.D.": "https://nitj.ac.in/files/1713245154087-PhD%20Flyer.pdf",
+            "Integrated B.Sc.-B.Ed.": "https://nitj.ac.in/files/1716783100204-BSc_BEd_Flyer.pdf"
+        }
+    },
+    "Research": {
+        "Research @NITJ": {
+            "VIDWAN (IRINS Instance)": "https://nitj.irins.org/",
+            "Scopus Publications": "https://www.nitj.ac.in/template/index.html?id=64d0d8abed9a6e3506b3df6b?category=newpage",
+            "Web of Science Publications": "https://www.nitj.ac.in/template/index.html?id=6524f144b8c492ab73a19869?category=newpage",
+            "Research Jobs": "https://www.nitj.ac.in/research/jobs.html#research",
+            "Sponsored Research Projects": "https://www.nitj.ac.in/template/index.html?id=66501a2bdf0e48b861e84c3d?category=newpage",
+            "List of Equipments": "https://www.nitj.ac.in/erp/modules/other/equipment_booking/all_equipments"
+        },
+        "Incubation @NITJ": {
+            "STI Hub": "https://www.nitj.ac.in/research/sti_hub.html",
+            "E-Cell": "https://www.nitj.ac.in/ecell/",
+            "Innovation Club": "https://www.nitj.ac.in/Innovation_Club/",
+            "Institute Innovation Council": "https://www.nitj.ac.in/research/InstituteInnovationCouncil.html",
+            "Technology Business Incubator": "https://www.nitj.ac.in/template/index.html?id=64f96f2c42b561e7f24259f7?category=newpage"
+        },
+        "Consultancy @NITJ": {
+            "MoUs": "https://www.nitj.ac.in/research/mous.html",
+            "IPRs": "https://www.nitj.ac.in/template/index.html?id=64cb39050bec0be338f92ad4?category=newpage",
+            "Consultancy Works": "https://www.nitj.ac.in/research/consultancy.html"
+        },
+        "Events": {
+            "Conferences": "https://www.nitj.ac.in/template/index.html?id=0?category=upcomingEvent",
+            "STC/ FDP": "https://www.nitj.ac.in/template/index.html?id=0?category=upcomingEvent",
+            "Workshops": "https://www.nitj.ac.in/template/index.html?id=0?category=upcomingEvent"
+        }
+    },
+    "Alumni": {
+        "NITJAA": {
+            "NITJ Alumni Association": "https://www.nitj.ac.in/alumni/alumni.html",
+            "Alumni Registration": "https://nitjalandhar.almaconnect.com/",
+            "Chapters": "https://www.nitj.ac.in/alumni/alumni.html#chapters",
+            "Give Back": "https://www.nitj.ac.in/alumni/givingback.html"
+        }
+    },
+    "Life at NITJ": {
+        "Cultural Club": {
+            "Aarogya": "https://www.nitj.ac.in/clubs/template.html?id=arogya",
+            "Dance": "https://www.nitj.ac.in/clubs/template.html?id=dance",
+            "Ek Bharat Shrestha Bharat": "https://www.nitj.ac.in/clubs/template.html?id=ebsb",
+            "Fashion & Modelling": "https://www.nitj.ac.in/clubs/template.html?id=fashion",
+            "Finance Society NITJ": "https://www.nitj.ac.in/clubs/template.html?id=finnest",
+            "Fine Art Society": "https://www.nitj.ac.in/clubs/template.html?id=fas",
+            "Food & Flavour": "https://www.nitj.ac.in/clubs/template.html?id=food",
+            "Green": "https://www.nitj.ac.in/clubs/template.html?id=green",
+            "Media cell": "https://www.nitj.ac.in/clubs/template.html?id=mediacell",
+            "Music": "https://www.nitj.ac.in/clubs/template.html?id=music",
+            "NCC": "https://www.nitj.ac.in/clubs/template.html?id=ncc",
+            "Regional Language": "https://www.nitj.ac.in/clubs/template.html?id=rlc",
+            "Sanskriti": "https://www.nitj.ac.in/clubs/template.html?id=sanskriti",
+            "SARC": "https://www.nitj.ac.in/clubs/template.html?id=sarc"
+        },
+        "Cultural club": {
+            "": "",
+            "Social Works & Rural Activity": "https://www.nitj.ac.in/clubs/template.html?id=social",
+            "Website Development & Management": "https://www.nitj.ac.in/clubs/template.html?id=wdmc",
+            "Yodha": "https://www.nitj.ac.in/clubs/template.html?id=yodha",
+            "Yoga & Meditation": "https://www.nitj.ac.in/clubs/template.html?id=yoga"
+        },
+        "Technical Club": {
+            "APOGEE": "https://www.nitj.ac.in/clubs/template.html?id=apogee",
+            "StrataBiz": "https://www.nitj.ac.in/clubs/template.html?id=stratabiz",
+            "Vortex": "https://www.nitj.ac.in/clubs/template.html?id=vortex",
+            "": ""
+        },
+        "Scholarships": {
+            "Central Schemes": "https://www.nitj.ac.in/template/index.html?id=64c893caead2fd9414787188?category=newpage",
+            "UGC Schemes": "https://www.nitj.ac.in/template/index.html?id=64c89f76ead2fd94147ac927?category=newpage",
+            "State Schemes": "https://www.nitj.ac.in/template/index.html?id=64c8a36bead2fd94147c0f9a?category=newpage",
+            "Other Scholarships": "https://www.nitj.ac.in/template/index.html?id=64c8a43bead2fd94147c3e11?category=newpage",
+            "Scholarship Section Officials": "https://www.nitj.ac.in/template/index.html?id=64c8a85aead2fd94147cdd35?category=newpage"
+        },
+        "Campus Amenities": {
+            "Banks & ATMs": "https://www.nitj.ac.in/lifeAtNitj/CampusAmenities.html#Banks%20&%20ATMs",
+            "Canteens & Shops": "https://www.nitj.ac.in/lifeAtNitj/CampusAmenities.html#Canteen%20&%20Shops",
+            "Center Seminar Hall": "https://www.nitj.ac.in/lifeAtNitj/CampusAmenities.html#Center%20Seminar%20Hall",
+            "Daily Commute": "https://www.nitj.ac.in/lifeAtNitj/CampusAmenities.html#Daily%20Commute"
+        },
+        "Health And Wellness": {
+            "Health Care Services": "https://www.nitj.ac.in/lifeAtNitj/HealthAndWellness.html#COUNSELLING%20SERVICES",
+            "Fit India Movement Campaign": "https://www.nitj.ac.in/lifeAtNitj/HealthAndWellness.html#FIT%20INDIA%20MOVEMENT",
+            "Sports and Gymnasium": "https://www.nitj.ac.in/lifeAtNitj/HealthAndWellness.html#GYMNASIUM",
+            "Student Grievance Cell": "https://www.nitj.ac.in/admin/student-g-cell.html"
+        },
+        "NITJ Festivals": {
+            "Bharat Dhavani (Annual Foundation day)": "https://www.nitj.ac.in/clubs/bharat_dhwani.html",
+            "Utkansh (Annual Cultural Fest)": "https://www.nitj.ac.in/clubs/cultural.html",
+            "Techniti (Annual Technical fest)": "https://www.nitj.ac.in/clubs/tech_fest.html",
+            "Annual Athletic Fest": "https://www.nitj.ac.in/clubs/atheletic.html",
+            "Sports Tournaments": "https://www.nitj.ac.in/clubs/sports.html"
+        },
+        "Accomodation": {
+            "Guest House": "https://www.nitj.ac.in/lifeAtNitj/Guest%20house.html",
+            "Boys Hostels": "https://www.nitj.ac.in/lifeAtNitj/hostel.html",
+            "Girls Hostels": "https://www.nitj.ac.in/lifeAtNitj/hostel.html#girlshostel",
+            "Hostel Rules": "https://www.nitj.ac.in/lifeAtNitj/hostel.html#hostelrules",
+            "Estate Office": "https://www.nitj.ac.in/lifeAtNitj/StateOffice.html"
+        },
+        "SAMP": {
+            "SAMP": "https://www.nitj.ac.in/lifeAtNitj/samp/index.html"
+        }
+    }
+}

@@ -1,0 +1,126 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+driver.get("https://www.nitj.ac.in/")
+
+fields = WebDriverWait(driver, 10).until(
+    EC.presence_of_element_located((By.XPATH, '/html/body/header/header/div[4]/div/div'))
+    )
+
+sections = fields.find_elements(By.CSS_SELECTOR, '.group.cursor-default.hover\\:bg-blue-800')
+
+level1_dict = {}
+
+for section in sections:
+        section_name = section.find_element(By.CSS_SELECTOR, '.p-1\\.5.font-medium.uppercase').get_attribute('textContent').strip()
+        
+        level2_dict = {}
+        subsections = section.find_elements(By.ID, 'head')
+
+
+        for ss in subsections:
+            ss_name = ss.find_element(By.CLASS_NAME, 'p-2.text-center').get_attribute('textContent').strip()
+            list_items = ss.find_elements(By.TAG_NAME, 'li')
+
+            level3_dict = {}
+
+            for item in list_items:
+                link = item.find_element(By.TAG_NAME, 'a')
+                link_name = link.get_attribute('textContent').strip()
+                link_url = link.get_attribute('href')
+                
+                level3_dict[link_name] = link_url
+
+            level2_dict[ss_name] = level3_dict
+
+        level1_dict[section_name] = level2_dict 
+
+with open('extracted_links.json', 'w', encoding='utf-8') as f:
+    json.dump(level1_dict, f, indent=4, ensure_ascii=False)  
+
+
+seen_links[normalize_url("https://www.nitj.ac.in/")] = fetch_and_hash_content("https://www.nitj.ac.in/")
+
+for section, subsections in level1_dict.items():
+    for subsection, links in subsections.items():
+        for link_text, url in links.items():
+            normalized_url = normalize_url(url)
+            content_hash = fetch_and_hash_content(url)
+            if content_hash and content_hash not in seen_links.values():
+                seen_links[normalized_url] = content_hash
+                relevant_links[normalized_url] = url
+
+
+import spacy
+import re
+import string
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
+# Ensure required NLTK data is downloaded
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+
+# Load the spaCy model for NER
+nlp = spacy.load("en_core_web_sm")  # You can use a larger model if necessary
+
+def preprocess_text(text):
+    # Initialize lemmatizer and stopwords
+    lemmatizer = WordNetLemmatizer()
+    stop_words = set(stopwords.words('english'))
+    
+    # Generalize spacing patterns for various cases
+    spacing_patterns = [
+        # Add space between concatenated words (CamelCase words like 'DrNitin' -> 'Dr Nitin')
+        (r'(\w)([A-Z])', r'\1 \2'),  # Adds space before uppercase letters that follow lowercase letters
+        (r'([a-zA-Z])(\d)', r'\1 \2'),  # Adds space before numbers if they are directly after letters
+        (r'(\d)([a-zA-Z])', r'\1 \2'),  # Adds space after numbers if directly followed by letters
+        (r'([a-zA-Z])([.,;!?])', r'\1 \2'),  # Adds space before punctuation if not already spaced
+        (r'([.,;!?])([a-zA-Z])', r'\1 \2'),  # Adds space after punctuation if not already spaced
+        (r'(\w)(@)', r'\1 \2'),  # Adds space before emails if concatenated with letters
+        (r'(@)(\w)', r'\1 \2'),  # Adds space after "@" symbol if concatenated with letters
+        (r'(\d{7})(\d{1})', r'\1 \2'),  # Adds space after 7-digit phone numbers
+        (r'(\d)(\d{4}-\d{4})', r'\1 \2'),  # Adds space between phone number segments
+        (r'(\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|\d{4})', r' \1 ')  # Adds space before and after dates
+    ]
+    
+    # Apply all spacing patterns to ensure proper word separation
+    for pattern, replacement in spacing_patterns:
+        text = re.sub(pattern, replacement, text)
+    
+    # Named Entity Recognition (NER) to detect and preserve named entities (persons, organizations, etc.)
+    doc = nlp(text)
+    entities = {ent.text for ent in doc.ents}  # Preserve named entities (like names, places, etc.)
+    
+    # Tokenize text
+    tokens = nltk.word_tokenize(text)
+    
+    # List to hold processed tokens
+    processed_tokens = []
+    
+    # Process each token
+    for word in tokens:
+        if re.match(r'\d{1,2}[/-]\d{1,2}[/-]\d{2,4}|\d{4}', word):  # Dates
+            processed_tokens.append(word)
+        elif re.match(r'[\w\.-]+@[\w\.-]+\.\w+', word):  # Emails
+            processed_tokens.append(word)  # Keep email in its original form
+        elif re.match(r'http\S+|www\S+', word):  # URLs
+            processed_tokens.append(word)  # Keep URL in its original form
+        elif re.match(r'\+?\d{1,2}-\d{1,4}-\d{1,4}-\d{1,4}', word):  # Phone numbers
+            processed_tokens.append(word)  # Keep phone number in its original form
+        elif word.lower() not in stop_words and word not in string.punctuation:
+            # Preserve named entities in their original form (case-sensitive)
+            if word in entities:
+                processed_tokens.append(word)
+            else:
+                processed_tokens.append(lemmatizer.lemmatize(word.lower()))
+    
+    # Join the processed tokens into a single string
+    preprocessed_text = ' '.join(processed_tokens).strip()
+    
+    
+    
+    return preprocessed_text
