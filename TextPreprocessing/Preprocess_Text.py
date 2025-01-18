@@ -1,10 +1,14 @@
-import re
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
 import nltk
-
-nltk.download('stopwords')
+from nltk.corpus import stopwords, wordnet
+from nltk import pos_tag
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+import re
 nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger_eng')
+
 
 class BaseMasker:
     def __init__(self, name):
@@ -128,21 +132,39 @@ class TextProcessor:
         text = text.lower()
         text = re.sub(r'\s+', ' ', text).strip()  # Remove extra whitespaces
         text = re.sub(r'\.{2,}', '.', text)   # Normalize punctuation
-        text = re.sub(r'[^\w\s.,<>]', '', text)  # Remove unwanted characters, ensuring placeholders remain intact
+        text = re.sub(r'[^\w\s.,<>-]', '', text)  # Remove unwanted characters, ensuring placeholders remain intact
         text = re.sub(r'[\n\t\r]+', ' ', text)  # Replace newlines and tabs with spaces
         text = re.sub(r'^[^\w\s]+|[^\w\s]+$', '', text)  # Remove leading or trailing punctuation marks that aren't part of valid content
+        text = re.sub(r'[^\w\s]', '', text)  # Remove all punctuation marks
         
         print("Before stopwords : ", text)
 
         stop_words = set(stopwords.words('english'))
-        words = word_tokenize(text)  # Tokenize the text into words
+        words = word_tokenize(text)   
+
+        lemmatizer = WordNetLemmatizer()
+
+        def get_wordnet_pos(treebank_tag):
+            if treebank_tag.startswith('J'):
+                return wordnet.ADJ
+            elif treebank_tag.startswith('V'):
+                return wordnet.VERB
+            elif treebank_tag.startswith('N'):
+                return wordnet.NOUN
+            elif treebank_tag.startswith('R'):
+                return wordnet.ADV
+            else:
+                return wordnet.NOUN  
+
         print(words)
         processed_words = []
-        for word in words:
-            if word in temp_placeholders.values():  # Keep temporary tokens intact
+        words_with_pos = pos_tag(words)   
+        for word, tag in words_with_pos:
+            if word in temp_placeholders.values():  
                 processed_words.append(word)
-            elif word not in stop_words:  # Remove stopwords
-                processed_words.append(word)
+            elif word not in stop_words:   
+                lemmatized_word = lemmatizer.lemmatize(word, get_wordnet_pos(tag))
+                processed_words.append(lemmatized_word)
         
         print("Processed words : ", processed_words)
 
@@ -150,7 +172,7 @@ class TextProcessor:
        
         print("in the function", text)
 
-        for temp, ph in temp_placeholders.items():   # Replace temporary tokens with original placeholders
+        for temp, ph in temp_placeholders.items():   
             text = text.replace(ph, temp)
         
         print("Returning : ", text)
