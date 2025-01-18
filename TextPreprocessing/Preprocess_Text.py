@@ -1,22 +1,37 @@
 import nltk
+import re
 from nltk.corpus import stopwords, wordnet
 from nltk import pos_tag
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
-import re
-nltk.download('punkt')
-nltk.download('stopwords')
-nltk.download('wordnet')
-nltk.download('averaged_perceptron_tagger_eng')
+from abc import ABC, abstractmethod
+
+nltk.download('punkt', quiet=True)
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('averaged_perceptron_tagger_eng', quiet=True)
 
 
-class BaseMasker:
+class BaseMasker(ABC):
     def __init__(self, name):
         self._placeholder_counter = 1
         self._placeholder_dict = {}
         self._name = name
 
+    @abstractmethod
+    def mask(self, text):
+        pass
+
     def _replace_with_placeholder(self, match):
+        """
+        Replaces the matched value with a placeholder and stores it in a dictionary.
+        
+        Args:
+            match (re.Match): The matched pattern from the regular expression.
+        
+        Returns:
+            str: The placeholder corresponding to the matched value.
+        """
         value = match.group(0)
         placeholder = f"{self._name}{self._placeholder_counter}"
         self._placeholder_dict[placeholder] = value
@@ -24,15 +39,32 @@ class BaseMasker:
         return placeholder
 
     def _mask_values(self, text, patterns):
+        """
+        Masks values in the text based on the provided patterns.
+        
+        Args:
+            text (str): The text to be processed.
+            patterns (list): A list of regex patterns to identify values to be masked.
+        
+        Returns:
+            str: The masked text.
+        """
         masked_text = text
         for pattern in patterns:
             masked_text = re.sub(pattern, self._replace_with_placeholder, masked_text)
         return masked_text
     
     def unmask_values(self, text):
+        """
+        Replaces the placeholders in the text with the original values.
+        
+        Args:
+            text (str): The text with placeholders to be replaced.
+        
+        Returns:
+            str: The text with original values restored.
+        """
         unmasked_text = text
-        print(self)
-        print(self._placeholder_dict)
         for placeholder, value in self._placeholder_dict.items():
             unmasked_text = unmasked_text.replace(placeholder, value)
         return unmasked_text
@@ -56,6 +88,15 @@ class URLMasker(BaseMasker):
         ]
 
     def mask(self, text):
+        """
+        Masks URLs in the provided text.
+        
+        Args:
+            text (str): The text containing URLs to be masked.
+        
+        Returns:
+            str: The text with masked URLs.
+        """
         return self._mask_values(text, self.__patterns)
 
 
@@ -76,6 +117,15 @@ class EmailMasker(BaseMasker):
         ]
 
     def mask(self, text):
+        """
+        Masks email addresses in the provided text.
+        
+        Args:
+            text (str): The text containing email addresses to be masked.
+        
+        Returns:
+            str: The text with masked email addresses.
+        """
         return self._mask_values(text, self.__patterns)
 
 
@@ -94,6 +144,15 @@ class DateMasker(BaseMasker):
         ]
 
     def mask(self, text):
+        """
+        Masks date information in the provided text.
+        
+        Args:
+            text (str): The text containing dates to be masked.
+        
+        Returns:
+            str: The text with masked dates.
+        """
         return self._mask_values(text, self.__patterns)
 
 
@@ -112,6 +171,15 @@ class PhoneMasker(BaseMasker):
         ]
 
     def mask(self, text):
+        """
+        Masks phone numbers in the provided text.
+        
+        Args:
+            text (str): The text containing phone numbers to be masked.
+        
+        Returns:
+            str: The text with masked phone numbers.
+        """
         return self._mask_values(text, self.__patterns)
 
 
@@ -120,14 +188,22 @@ class TextProcessor:
         self.__maskers = [URLMasker(), EmailMasker(), PhoneMasker(), DateMasker()]
 
     def __preprocess_function(self, text):
+        """
+        Preprocesses the text by performing steps such as normalization, tokenization, 
+        stopword removal, lemmatization, and restoring placeholders.
+        
+        Args:
+            text (str): The raw text to be preprocessed.
+        
+        Returns:
+            str: The preprocessed text.
+        """
         placeholder_pattern = r'(EMAIL|URL|PHONE|DATE)\d+'
     
         placeholders = re.findall(placeholder_pattern, text)
         temp_placeholders = {ph: f"placeholder_{i}" for i, ph in enumerate(placeholders)}
         for ph, temp in temp_placeholders.items():
             text = text.replace(ph, temp)
-        
-        print("Before text preprocessing : ", text)
 
         text = text.lower()
         text = re.sub(r'\s+', ' ', text).strip()  # Remove extra whitespaces
@@ -136,8 +212,6 @@ class TextProcessor:
         text = re.sub(r'[\n\t\r]+', ' ', text)  # Replace newlines and tabs with spaces
         text = re.sub(r'^[^\w\s]+|[^\w\s]+$', '', text)  # Remove leading or trailing punctuation marks that aren't part of valid content
         text = re.sub(r'[^\w\s]', '', text)  # Remove all punctuation marks
-        
-        print("Before stopwords : ", text)
 
         stop_words = set(stopwords.words('english'))
         words = word_tokenize(text)   
@@ -155,40 +229,40 @@ class TextProcessor:
                 return wordnet.ADV
             else:
                 return wordnet.NOUN  
-
-        print(words)
+            
         processed_words = []
-        words_with_pos = pos_tag(words)   
+        words_with_pos = pos_tag(words) 
+
         for word, tag in words_with_pos:
             if word in temp_placeholders.values():  
                 processed_words.append(word)
             elif word not in stop_words:   
                 lemmatized_word = lemmatizer.lemmatize(word, get_wordnet_pos(tag))
                 processed_words.append(lemmatized_word)
-        
-        print("Processed words : ", processed_words)
 
         text = ' '.join(processed_words)
-       
-        print("in the function", text)
 
         for temp, ph in temp_placeholders.items():   
             text = text.replace(ph, temp)
         
-        print("Returning : ", text)
         return text
 
+
     def process_text(self, raw_text):
-        print("In the function")
+        """
+        Processes the raw text by applying masking, preprocessing, and unmasking steps.
+        
+        Args:
+            raw_text (str): The raw input text to be processed.
+        
+        Returns:
+            str: The final processed text with original values restored.
+        """
         masked_text = raw_text
         for masker in self.__maskers:
             masked_text = masker.mask(masked_text)
-        
-        print("Masked Text : ", masked_text)
 
         preprocessed_text = self.__preprocess_function(masked_text)
-
-        print("Preprocessed Text : " , preprocessed_text)
 
         final_text = preprocessed_text
         for masker in self.__maskers:
