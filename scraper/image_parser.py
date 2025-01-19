@@ -1,3 +1,4 @@
+import os
 import pytesseract
 import cv2
 import requests
@@ -8,6 +9,9 @@ from datetime import datetime
 from io import BytesIO
 from urllib.parse import urljoin
 from tqdm import tqdm
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class ImageExtractor:
     """
@@ -19,7 +23,7 @@ class ImageExtractor:
         captioning_model (BlipForConditionalGeneration): The model for generating image captions.
     """
 
-    def __init__(self, driver, tesseract_cmd=r'/usr/bin/tesseract'):
+    def __init__(self, driver):
         """
         Initializes the ImageProcessor with the path to the Tesseract executable and loads the BLIP captioning model.
 
@@ -28,11 +32,11 @@ class ImageExtractor:
         """
         self.__driver = driver
         # Set up Tesseract command Path
-        pytesseract.pytesseract.tesseract_cmd = tesseract_cmd 
+        pytesseract.pytesseract.tesseract_cmd = os.getenv("TESSERACT_CMD")
    
-        # Load the image captioning model and processor
-        self.__processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
-        self.__captioning_model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+        model_name = os.getenv("BLIP_MODEL_NAME", "Salesforce/blip-image-captioning-base")
+        self.__processor = BlipProcessor.from_pretrained(model_name)
+        self.__captioning_model = BlipForConditionalGeneration.from_pretrained(model_name)
 
 
     # Function to create an image dictionary with OCR and Captioning

@@ -2,6 +2,9 @@ import os
 import pandas as pd
 from datetime import datetime
 from tqdm import tqdm
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class TableTextExtractor:
     """
@@ -12,7 +15,7 @@ class TableTextExtractor:
         __save_dir (str): The directory where extracted tables will be saved as CSV files.
     """
 
-    def __init__(self, driver, save_dir='tables'):
+    def __init__(self, driver):
         """
         Initializes the TableTextExtractor with a WebDriver instance and a directory to save tables.
 
@@ -21,8 +24,8 @@ class TableTextExtractor:
             save_dir (str): The directory where extracted tables will be saved (default is 'tables').
         """
         self.__driver = driver
-        self.__save_dir = save_dir
-        os.makedirs(save_dir, exist_ok = True)
+        self.__save_dir = os.getenv("SAVE_DIR")
+        os.makedirs(self.__save_dir, exist_ok = True)
 
 
     def __extract_text_from_html(self, soup):

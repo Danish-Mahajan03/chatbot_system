@@ -1,4 +1,6 @@
 django models for databases, faiss index, models for talk.
 
+future add-ons : dealing with other kinds of data like xlsx, zip, pdf, docx, tables.
+
 nlp cloud api
 d34aeeb5befd31450eeb24d91095227d10b67350

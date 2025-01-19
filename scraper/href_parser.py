@@ -1,7 +1,11 @@
+import os
 from scraper.utils import URLNameGenerator, normalize_url, download_file, fetch_and_hash_content
 from datetime import datetime
 from urllib.parse import urljoin
 from tqdm import tqdm
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class LinkProcessor:
     """
@@ -25,9 +29,9 @@ Methods:
         Processes all anchor tags in the provided BeautifulSoup object, identifies downloadable files, 
         downloads them, and categorizes the metadata. Updates seen and relevant links to avoid duplicates.
 """
-    def __init__(self, driver, download_folder='fetched_downloadables'):
+    def __init__(self, driver):
         self.__driver = driver
-        self.__download_folder = download_folder
+        self.__download_folder = os.getenv("DOWNLOAD_FOLDER", "fetched_downloadables")
         self.__url_name_gen = URLNameGenerator()
 
     def __handle_downloadable(self, full_url, a_tag, downloadables_data, downloadables):

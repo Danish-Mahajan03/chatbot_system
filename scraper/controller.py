@@ -11,11 +11,12 @@ from scraper.href_parser import LinkProcessor
 from scraper.utils import (URLNameGenerator, create_content_dictionary, normalize_url, is_college_url, is_pdf_url,
                   download_file, is_google_drive_url, extract_google_drive_file_id,
                   google_drive_download_url, can_fetch_content, fetch_and_hash_content)
+from dotenv import load_dotenv
+
+load_dotenv()
 
 class ContentFetcher:
-    def __init__(self, driver, 
-                 download_folder="fetched_downloadables", 
-                 storage_file="URLMetaData.pkl"):
+    def __init__(self, driver):
         """
     Initializes the ContentFetcher class with driver, download folder, and storage file.
     Loads previously saved data if available and sets up the download folder.
@@ -29,9 +30,10 @@ class ContentFetcher:
         Creates the download folder if it doesn't exist.
         Loads previously stored data from the storage file, if available.
     """
+        download_folder = os.getenv("DOWNLOAD_FOLDER", "fetched_downloadables")
         self.__driver = driver
         self.__download_folder = download_folder
-        self.__storage_file = storage_file
+        self.__storage_file = os.getenv("STORAGE_FILE", "default_file.pkl")
         self.__url_name_gen = URLNameGenerator()
         self.__relevant_links = {}
 
@@ -177,7 +179,7 @@ class ContentFetcher:
                         print(f"Processing PDF: {url}")
                         filename = self.__url_name_gen.get_name_from_url(url).replace('/', '_')
                         if filename not in [item[0] for item in self.__downloadables.get('pdf', [])]:
-                            downloaded_pdf_path = download_file(url, local_folder='fetched_downloadables', filename=filename)
+                            downloaded_pdf_path = download_file(url, local_folder=self.__download_folder, filename=filename)
                             if downloaded_pdf_path:
                                 self.__extracted_data[normalized_url] = {
                                     'pdf_path': downloaded_pdf_path,
@@ -197,7 +199,7 @@ class ContentFetcher:
                             filename = f"{file_id}".replace('/', '_')
                             
                             if filename not in [item[0] for item in self.__downloadables.get('pdf', [])]:
-                                downloaded_pdf_path = download_file(download_url, local_folder='fetched_downloadables', filename=filename)
+                                downloaded_pdf_path = download_file(download_url, local_folder=self.__download_folder, filename=filename)
                                     
                                 if downloaded_pdf_path:
                                     self.__extracted_data[normalized_url] = {
