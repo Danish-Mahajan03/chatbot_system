@@ -1,6 +1,3 @@
-django models for databases, faiss index, models for talk.
+django models for databases, faiss gpu download, methodtocall and dbfetcher in pipeline after implementing django replace this.
 
-future add-ons : dealing with other kinds of data like xlsx, zip, pdf, docx, tables.
-
-nlp cloud api
-d34aeeb5befd31450eeb24d91095227d10b67350
+future add-ons : dealing with other kinds of data like xlsx, zip, pdf, docx, tables, extract question from the user query.

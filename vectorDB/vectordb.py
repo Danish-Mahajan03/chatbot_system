@@ -30,9 +30,9 @@ class VectorDatabaseModule:
         self.metadata = {}
 
         if torch.cuda.is_available():
-            self.res = faiss.StandardGpuResources()  # GPU resources
-            self.index = faiss.IndexFlatL2(self.vector_dim)  # Create index
-            self.index = faiss.index_cpu_to_gpu(self.res, 0, self.index)  # Move index to GPU
+            self.res = faiss.StandardGpuResources()  
+            self.index = faiss.IndexFlatL2(self.vector_dim)  
+            self.index = faiss.index_cpu_to_gpu(self.res, 0, self.index)   
         else:
             self.index = faiss.IndexFlatL2(self.vector_dim)
 
