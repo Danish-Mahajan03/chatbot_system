@@ -1,3 +1,3 @@
 django models for databases, faiss gpu download, methodtocall and dbfetcher in pipeline after implementing django replace this.
 
-future add-ons : dealing with other kinds of data like xlsx, zip, pdf, docx, tables, extract question from the user query.
+future add-ons : dealing with other kinds of data like xlsx, zip, docx, tables(csv), extract question from the user query.
