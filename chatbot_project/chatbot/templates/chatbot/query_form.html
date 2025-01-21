@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 400px;
+            max-width: 100%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .chat-box {
+            height: 300px;
+            overflow-y: scroll;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .chat-box p {
+            margin: 5px 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background-color: #e1e1e1;
+        }
+
+        .user-message {
+            background-color: #4CAF50;
+            color: white;
+            text-align: right;
+        }
+
+        .bot-message {
+            background-color: #ddd;
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #query {
+            width: 80%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        // Function to get CSRF token from the cookie
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">Chatbot</div>
+
+        <div class="chat-box" id="chatBox"></div>
+
+        <div class="input-group">
+            <input type="text" id="query" name="query" placeholder="Ask something..." required>
+            <button type="submit" id="submitButton">Submit</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('query').value;
+            if (query.trim() === "") return; // Ignore empty queries
+
+            // Display user message
+            const chatBox = document.getElementById('chatBox');
+            const userMessage = document.createElement('p');
+            userMessage.classList.add('user-message');
+            userMessage.innerText = query;
+            chatBox.appendChild(userMessage);
+            chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+
+            // Clear input field
+            document.getElementById('query').value = "";
+
+            // CSRF token for the request
+            const csrfToken = getCookie('csrftoken');
+
+            // Send the query to the backend
+            fetch('/', {
+                method: 'POST',
+                body: new URLSearchParams('query=' + query),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': csrfToken  // Add CSRF token in the header
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display bot response
+                const botMessage = document.createElement('p');
+                botMessage.classList.add('bot-message');
+                botMessage.innerText = data.response;
+                chatBox.appendChild(botMessage);
+                chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
