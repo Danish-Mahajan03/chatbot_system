@@ -110,10 +110,10 @@ class TableTextExtractor:
     """
         try:
             page_text = self.__extract_text_from_html(soup)
-            tables = self.__extract_tables(soup)
+            # tables = self.__extract_tables(soup)
             result = {
                 'text': page_text,
-                'tables': tables
+                # 'tables': tables
             }
             return result
         except Exception as e:

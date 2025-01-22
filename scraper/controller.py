@@ -30,10 +30,10 @@ class ContentFetcher:
         Creates the download folder if it doesn't exist.
         Loads previously stored data from the storage file, if available.
     """
-        download_folder = os.getenv("DOWNLOAD_FOLDER", "fetched_downloadables")
+        download_folder = os.getenv("DOWNLOAD_FOLDER", "files/fetched_downloadables")
         self.__driver = driver
         self.__download_folder = download_folder
-        self.__storage_file = os.getenv("STORAGE_FILE", "default_file.pkl")
+        self.__storage_file = os.getenv("STORAGE_FILE", "files/default_file.pkl")
         self.__url_name_gen = URLNameGenerator()
         self.__relevant_links = {}
 
@@ -123,25 +123,28 @@ class ContentFetcher:
         text_data = extractor.extract_content_from_page(soup) 
         print("Text Completed------------------------------------------------------------")
 
-        print("Entering images extraction function---------------------------------------")
-        extractor = ImageExtractor(self.__driver)
-        images_data = extractor.extract_images_from_page(soup)
-        print("Image Completed------------------------------------------------------------")
+        # print("Entering images extraction function---------------------------------------")
+        # extractor = ImageExtractor(self.__driver)
+        # images_data = extractor.extract_images_from_page(soup)
+        # print("Image Completed------------------------------------------------------------")
  
-        print("Entering videos extraction function----------------------------------------")
-        extractor = VideoExtractor(self.__driver)
-        video_data = extractor.extract_video_iframes_and_links(soup)
-        print("Video Completed------------------------------------------------------------")
+        # print("Entering videos extraction function----------------------------------------")
+        # extractor = VideoExtractor(self.__driver)
+        # video_data = extractor.extract_video_iframes_and_links(soup)
+        # print("Video Completed------------------------------------------------------------")
 
-        print("Entering links extraction function------------------------------------------")
-        extractor = LinkProcessor(self.__driver)
-        links_data = extractor.process_href_links(soup, self.__seen_links, self.__relevant_links, self.__downloadables)
-        print("Links Completed------------------------------------------------------------")
+        # print("Entering links extraction function------------------------------------------")
+        # extractor = LinkProcessor(self.__driver)
+        # links_data = extractor.process_href_links(soup, self.__seen_links, self.__relevant_links, self.__downloadables)
+        # print("Links Completed------------------------------------------------------------")
 
-        content_dict = create_content_dictionary(text_data, images_data, links_data, video_data)
-        print("Returning content dictionary")
+        # content_dict = create_content_dictionary(text_data, images_data, links_data, video_data)
+        
+        # print("Returning content dictionary")
 
-        return content_dict
+        # return content_dict
+        print("Text Returned")
+        return text_data.get('text')
     
     def process_url(self, url):
         """

@@ -1,3 +1,10 @@
-django models for databases, faiss gpu download, methodtocall and dbfetcher in pipeline after implementing django replace this.
-
-future add-ons : dealing with other kinds of data like xlsx, zip, docx, tables(csv), extract question from the user query.
+storing content in databases (other than text, images, downloadables(pdf)), integration of different modules.
+(Done) methodtocall and dbfetcher in pipeline after implementing django replace this.
+-----------------------------------------------------------------------------------------------------------
+faiss gpu download,
+-----------------------------------------------------------------------------------------------------------
+future add-ons : dealing with other kinds of data like xlsx, zip, docx, tables(csv)
+                 extract question from the user query.
+                 memory component in chatbot and user logs and other kind of stuff like this.
+-----------------------------------------------------------------------------------------------------------
+how can i improve response

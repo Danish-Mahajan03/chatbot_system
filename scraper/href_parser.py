@@ -120,7 +120,8 @@ Methods:
 
             if any(href.endswith(ext) for ext in ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.mp4', '.avi', '.mkv', '.mov', '.wmv', '.flv', '.webm']): 
                 continue
-            elif any(href.endswith(ext) for ext in ['.pdf', '.docx', '.xlsx', '.zip']):           
+            elif any(href.endswith(ext) for ext in ['.pdf', '.docx', '.xlsx', '.zip']):  
+                continue # Remove after testing         
                 self.__handle_downloadable(full_url, a_tag, downloadables_data, downloadables)
             elif not normalized_url or normalized_url in seen_links:          
                 continue
